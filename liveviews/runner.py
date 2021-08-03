@@ -1,8 +1,7 @@
+from liveviews.models.Camera import Camera
 import os
 import threading
-import time
 from typing import List
-from video.models.cameras import Camera
 from liveviews.models.Video import Video
 
 
@@ -19,15 +18,19 @@ def looper_control(state, stop_event, t):
 
 def run_cameras(active_cameras: List[Camera]):
     threads = []
+
     for camera in active_cameras:
-        if not os.path.exists(f"{path}{camera.camera_name}"):
-            os.makedirs(f"{path}{camera.camera_name}")
+        camera_path = f"{path}{camera.camera_name}"
+
+        if not os.path.exists(camera_path):
+            os.makedirs(camera_path)
 
         video = Video(
+            id=camera.id,
             name=camera.camera_name,
             stop_event=threading.Event(),
             url=camera.stream_url,
-            path=f"{path}{camera.camera_name}",
+            path=f"{camera_path}",
             record_time=video_duration)
 
         threads.append(video)

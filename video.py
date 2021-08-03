@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import os
 from youtube_dl import YoutubeDL
 
+
 def main():
     print("starting polling")
     run_videos()
@@ -18,7 +19,7 @@ def scarp_videos(videos) -> list:
         video_tags = soup.find_all("iframe", id="youtube")
         if video_tags:
             print("Total ", len(video_tags), "videos_found")
-            for video_tag in video_tags[:10]:
+            for video_tag in video_tags:
                 video_src.append(video_tag['src'])
             print(video_tag)
     return video_src
@@ -32,17 +33,17 @@ def first_ten_videos():
 
     soup = BeautifulSoup(r.content, 'lxml')
 
-    list_hrefs = soup.find_all("a", class_="wr-image")
+    list_hrefs = soup.find_all("a", class_="wr-image")[:15]
 
     if list_hrefs:
         return scarp_videos(list_hrefs)
 
-def run_videos():
+
+def run_videos() -> str:
     os.chdir("video")
-    f = open("links.txt", "w")
     ydl = YoutubeDL({'format': 'best', 'outtmpl': '%(id)s.%(ext)'})
     url = first_ten_videos()
-    result =[]
+    result = []
     with ydl:
         for item in url:
             try:
@@ -55,14 +56,8 @@ def run_videos():
                 result.append(video)
             except:
                 pass
-    
-    for item in result:
-        f.write(item["url"] + '\n')
-    f.close()
-    
-    # os.chdir("video/video_samples/test")
-    # subprocess.call(['ffmpeg', '-y', '-i', video['url'], '-c:v','copy', '-c:a', 'copy', 'whiteboysummer.mp4'])
 
+    return result
 
 
 if __name__ == "__main__":
