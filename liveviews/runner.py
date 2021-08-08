@@ -1,8 +1,8 @@
-from liveviews.models.Camera import Camera
+from models.Camera import Camera
 import os
 import threading
 from typing import List
-from liveviews.models.Video import Video
+from models.Video import Video
 
 
 path = os.environ["video_path"]

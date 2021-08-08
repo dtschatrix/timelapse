@@ -1,7 +1,7 @@
-from liveviews.services.CameraService import CameraService
-from liveviews.runner import run_cameras
-from liveviews.scheduler import Scheduler
-from liveviews.database import get_session
+from services.CameraService import CameraService
+from runner import run_cameras
+from scheduler import Scheduler
+from database import get_session
 
 
 def main():

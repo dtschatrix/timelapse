@@ -1,6 +1,6 @@
 from starlette import status
 from services.CameraService import CameraService
-from models.cameras import Camera, CameraCreate
+from models.Camera import Camera, CameraCreate
 from fastapi import APIRouter, Depends
 from typing import List
 

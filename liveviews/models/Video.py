@@ -1,5 +1,5 @@
 from datetime import datetime
-from liveviews.services.MetadataService import MetadataService
+from services.MetadataService import MetadataService
 import subprocess
 import threading
 import time

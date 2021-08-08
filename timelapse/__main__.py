@@ -1,12 +1,12 @@
 import os
 import time
-from timelapse.services.MetadataService import MetadataService
+from services.MetadataService import MetadataService
 
 def main():
     meta_service = MetadataService(os.environ["video_path"])
     print("run")
     while 1:
-      #  time.sleep(os.environ["timelapse_delay"])
+        time.sleep(int(os.environ["timelapse_delay"]))
         meta_service.build_timelapse_of_day()
         
 

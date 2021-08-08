@@ -1,5 +1,5 @@
 from typing import List
-from api.app.models.cameras import Camera
+from models.Camera import Camera
 
 from fastapi import (
     Depends,
@@ -8,8 +8,8 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 
-import api.app.tables as tables
-from api.app.database import get_session
+import tables
+from database import get_session
 
 
 class CameraService:
@@ -72,10 +72,10 @@ class CameraService:
         camera = (
             self.session
             .query(tables.Cameras)
-            .filter_by(camera_name = camera_name)
+            .filter_by(camera_name=camera_name)
             .first()
         )
         if not camera:
             raise Exception
-        
+
         return camera.id

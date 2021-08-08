@@ -1,5 +1,5 @@
 from typing import List
-from liveviews.models.Camera import Camera
+from models.Camera import Camera
 
 from fastapi import (
     Depends,
@@ -8,8 +8,8 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 
-import liveviews.tables as tables
-from liveviews.database import get_session
+import tables as tables
+from database import get_session
 
 
 class CameraService:

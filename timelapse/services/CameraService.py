@@ -1,5 +1,5 @@
 from typing import List
-from timelapse.models.Camera import Camera
+from models.Camera import Camera
 
 from fastapi import (
     Depends,
@@ -8,8 +8,8 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 
-import timelapse.tables as tables
-from timelapse.database import get_session
+import tables as tables
+from database import get_session
 
 
 class CameraService:

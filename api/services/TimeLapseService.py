@@ -1,5 +1,5 @@
 from typing import List
-from models.time_lapse import TimeLapse
+from models.TimeLapse import TimeLapse
 
 from fastapi import (
     Depends,

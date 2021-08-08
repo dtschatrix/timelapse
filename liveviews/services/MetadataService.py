@@ -1,10 +1,10 @@
 import os
 
-from liveviews.database import get_session
-from liveviews.services.LiveViewsService import LiveViewsService
+from database import get_session
+from services.LiveViewsService import LiveViewsService
 
-from liveviews.models.LiveViews import LiveViewsCreate
-from liveviews.services.DirectoryService import DirectoryService
+from models.LiveViews import LiveViewsCreate
+from services.DirectoryService import DirectoryService
 
 
 class MetadataService:

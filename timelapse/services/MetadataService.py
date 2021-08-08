@@ -1,13 +1,13 @@
-from timelapse.services.CameraService import CameraService
+from services.CameraService import CameraService
 
 from datetime import datetime
 import os
 import subprocess
 from ffprobe import FFProbe
 
-from timelapse.database import get_session
-from timelapse.services.TimeLapseService import TimeLapseService
-from timelapse.models.TimeLapse import TimeLapseCreate
+from database import get_session
+from services.TimeLapseService import TimeLapseService
+from models.TimeLapse import TimeLapseCreate
 from services.DirectoryService import DirectoryService
 
 

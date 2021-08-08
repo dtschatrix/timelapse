@@ -1,5 +1,5 @@
 from typing import List
-from models.live_views import LiveViews
+from models.LiveViews import LiveViews
 from services.LiveViewsService import LiveViewsService
 from fastapi.param_functions import Depends
 from fastapi import APIRouter
