@@ -3,9 +3,10 @@ import os
 import threading
 from typing import List
 from models.Video import Video
+from settings import settings
 
 
-path = os.environ["video_path"]
+path = settings.VIDEO_PATH
 video_duration = os.environ["cam_duration"]
 
 
@@ -20,7 +21,7 @@ def run_cameras(active_cameras: List[Camera]):
     threads = []
 
     for camera in active_cameras:
-        camera_path = f"{path}{camera.camera_name}"
+        camera_path = f'{path}{camera.camera_name}'
 
         if not os.path.exists(camera_path):
             os.makedirs(camera_path)
@@ -30,7 +31,7 @@ def run_cameras(active_cameras: List[Camera]):
             name=camera.camera_name,
             stop_event=threading.Event(),
             url=camera.stream_url,
-            path=f"{camera_path}",
+            path=camera_path,
             record_time=video_duration)
 
         threads.append(video)

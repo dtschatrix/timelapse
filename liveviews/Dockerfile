@@ -1,5 +1,6 @@
-FROM ubuntu:latest
-WORKDIR /api
+FROM python:3
+WORKDIR /liveviews
+#VOLUME [ "/home/shadowmorex/python_video_timelapse/db/database.sqLite3" ]
 RUN apt update && apt upgrade -y
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -11,4 +12,4 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT [ "python3", "liveviews/__main__.py" ]
+CMD [ "python3", "__main__.py" ]

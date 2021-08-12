@@ -1,21 +1,64 @@
-version: "3"
+
+#     # timelapse:
+#     #     build:
+#     #         context: ./
+#     #         dockerfile: ./timelapse/Dockerfile
+#     #     env_file: .env
+#     #     volumes: 
+#     #         - /db
+    
+#     # 
+#     # 
+#     # 
+#     # 
+#     #     env_file: .env
+#     #     volumes: 
+#     #         - /api
+
+version: '3.7'
 services:
     api:
         build: 
-            context: ./
-            dockerfile: ./api/Dockerfile
+            context: ./api
+            dockerfile: Dockerfile
         env_file: .env
         ports:
-             - "8000:1337"
-    
-    timelapse:
-        build:
-            context: ./
-            dockerfile: ./timelapse/Dockerfile
-        env_file: .env
-    
+            - "8000:1337"
+        depends_on:
+            - db
+
     liveviews:
         build:
-            context: ./
-            dockerfile: ./liveviews/Dockerfile
+            context: ./liveviews
+            dockerfile: Dockerfile
         env_file: .env
+        volumes: 
+            -  /home/shadowmorex/python_video_timelapse/video:/video/
+        depends_on: 
+            - db
+
+    timelapse:
+        build:
+            context: ./timelapse
+            dockerfile: Dockerfile
+        env_file: .env
+        volumes: 
+            - /home/shadowmorex/python_video_timelapse/video:/video/
+        depends_on:
+            - db
+
+
+    db:
+        image: postgres:13-alpine
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+        env_file:
+            - .env
+        ports:
+            - 5432:5432
+
+volumes:
+    postgres_data:
+    video:
+    
+    

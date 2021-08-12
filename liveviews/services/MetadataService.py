@@ -14,7 +14,7 @@ class MetadataService:
         pass
 
     def add_camera_metadata(self, id: int, path: str) -> None:
-        file = self.__dir_service.get_last_file(path)
+        file = self.__dir_service.get_file_by_name(path)
 
         if file:
             video_stream = next(

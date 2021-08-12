@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from youtube_dl.YoutubeDL import YoutubeDL
 from services.MetadataService import MetadataService
 import subprocess
 import threading
@@ -16,15 +18,27 @@ class Video(threading.Thread):
         self.isactive = True
         self.record_time = record_time
         self._service = MetadataService()
+        self._ydl = YoutubeDL({'format': 'best', 'outtmpl': '%(id)s.%(ext)'})
 
         threading.Thread.__init__(self, name=name)
 
     def run(self):
         if self.isactive:
+            with self._ydl:
+               try:
+                   self._ydl.cache.remove()
+                   item_info = self._ydl.extract_info(self.url, download=False)
+                   if 'entries' in item_info:
+                       video = item_info["entries"]["url"]
+                   else:
+                       video = item_info["url"]
+               except:
+                   pass
+
             time_s = datetime.now().strftime("%H:%M:%S")
             subprocess.call(['ffmpeg',
                              '-i',
-                             f'{self.url}',
+                             f'{video}',
                              '-t',
                              f'{self.record_time}',
                              '-c',
@@ -32,4 +46,4 @@ class Video(threading.Thread):
                              '-y',
                              f'{self.path}/{self.name}_{time_s}.mp4'])
             time.sleep(1)
-            self._service.add_camera_metadata(self.id, self.path)
+            self._service.add_camera_metadata(self.id, f'{self.path}/{self.name}_{time_s}.mp4')

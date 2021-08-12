@@ -3,10 +3,17 @@ from sqlalchemy.orm import sessionmaker
 
 from settings import settings
 
-engine = create_engine(
-    settings.database_url,
-    connect_args={'check_same_thread': False},
-)
+def get_url():
+    user = settings.POSTGRES_USER
+    password = settings.POSTGRES_PASSWORD
+    db = settings.POSTGRES_DB
+    server = settings.POSTGRES_SERVER
+    return f"postgresql://{user}:{password}@{server}/{db}"
+
+
+database_url = get_url()
+
+engine = create_engine(database_url)
 
 Session = sessionmaker(
     engine,

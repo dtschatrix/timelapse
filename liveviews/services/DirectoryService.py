@@ -16,10 +16,8 @@ class DirectoryService:
 
         return None
 
-    def get_last_file(self, path):
-        last_file = sorted(os.listdir(path))[-1]
-
-        return FFProbe(f'{path}/{last_file}')
+    def get_file_by_name(self, path):
+        return FFProbe(path)
 
     def get_last_directories(self, path):
         list_of_dirs = filter(os.path.isdir, glob(path + '/*'))

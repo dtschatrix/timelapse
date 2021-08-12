@@ -1,7 +1,8 @@
-FROM ubuntu:latest
+FROM python:3
 WORKDIR /timelapse
 
 RUN apt update && apt upgrade -y
+ENV PYTHONUNBUFFERED = 1
 
 RUN apt install -y build-essential python3-pip python3-dev
 
@@ -10,4 +11,4 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT [ "python3", "timelapse/__main__.py" ]
+CMD [ "python3", "__main__.py" ]

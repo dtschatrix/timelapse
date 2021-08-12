@@ -43,19 +43,23 @@ def run_videos() -> str:
     os.chdir("video")
     ydl = YoutubeDL({'format': 'best', 'outtmpl': '%(id)s.%(ext)'})
     url = first_ten_videos()
+    f = open("/home/shadowmorex/python_video_timelapse/video/links.txt", "w")
     result = []
-    with ydl:
-        for item in url:
-            try:
-                ydl.cache.remove()
-                item_info = ydl.extract_info(item, download=False)
-                if 'entries' in item_info:
-                    video = item_info["entries"]
-                else:
-                    video = item_info
-                result.append(video)
-            except:
-                pass
+    # with ydl:
+    #     for item in url:
+    #         try:
+    #             ydl.cache.remove()
+    #             item_info = ydl.extract_info(item, download=False)
+    #             if 'entries' in item_info:
+    #                 video = item_info["entries"]
+    #             else:
+    #                 video = item_info
+    #             result.append(video)
+    #         except:
+    #             pass
+
+    for item in url:
+        f.write(item + '\n')
 
     return result
 
