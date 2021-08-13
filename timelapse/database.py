@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 from settings import settings
 
+
 def get_url():
     user = settings.POSTGRES_USER
     password = settings.POSTGRES_PASSWORD

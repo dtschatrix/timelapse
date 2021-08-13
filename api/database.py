@@ -22,6 +22,7 @@ Session = sessionmaker(
     autoflush=False,
 )
 
+
 def get_session():
     session = Session()
     try:
@@ -30,4 +31,4 @@ def get_session():
         session.rollback()
         raise
     finally:
-        session.close() 
+        session.close()

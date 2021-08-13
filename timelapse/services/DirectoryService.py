@@ -10,7 +10,7 @@ class DirectoryService:
     def get_files_from_directory(self, path):
         list_of_files = [file for file in os.listdir(path) if file.endswith(
             ".mp4") and not file.startswith("timelapse")]
-        
+
         if list_of_files:
             return list_of_files
 

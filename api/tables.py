@@ -28,6 +28,7 @@ class LiveViews(Base):
     fps = sa.Column(sa.DECIMAL)
     fk_cameras = sa.Column(sa.Integer, ForeignKey('cameras.id'))
 
+
 class TimeLapse(Base):
     __tablename__ = "time_lapse"
 

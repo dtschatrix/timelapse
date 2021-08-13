@@ -1,8 +1,10 @@
 from pydantic import BaseSettings
+
+
 class Settings(BaseSettings):
     server_host: str = "0.0.0.0"
     server_port: int = 1337
-    
+
     POSTGRES_USER = "POSTGRES_USER"
     POSTGRES_PASSWORD = "POSTGRES_PASSWORD"
     POSTGRES_SERVER = "db"
@@ -10,8 +12,7 @@ class Settings(BaseSettings):
     POSTGRES_DB = "POSTGRES_DB"
 
 
-
 settings = Settings(
     _env_file=".env",
-    _env_file_encoding= "utf-8"
+    _env_file_encoding="utf-8"
 )

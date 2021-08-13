@@ -35,8 +35,11 @@ class MetadataService:
                     if videos:
 
                         videos_path = "\n".join(sorted(videos))
-                        f = open(f'{directory}/{os.environ["timelapse_links"]}', 'r+')
-                        f.truncate(0)
+                        print(f'{directory}/{os.environ["timelapse_links"]}')
+                        print("." * 5)
+                        time.sleep(5)
+
+                        f = open(f'{directory}/{os.environ["timelapse_links"]}', 'w')
                         f.write(videos_path)
                         f.close()
 
@@ -56,7 +59,7 @@ class MetadataService:
                                         )
 
                         self.__add_timelapse_metadata(
-                            f'/timelapse_{date}.mp4', directory)
+                            f'{directory}/timelapse_{date}.mp4', directory)
             else:
                 print("no videos")
         except Exception as ex:

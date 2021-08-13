@@ -6,7 +6,7 @@ services:
             dockerfile: Dockerfile
         env_file: .env
         ports:
-            - "8000:1337"
+            - "1337:1337"
         depends_on:
             - db
 
@@ -16,7 +16,7 @@ services:
             dockerfile: Dockerfile
         env_file: .env
         volumes: 
-            -  /home/shadowmorex/python_video_timelapse/video:/video/
+            -  /absolute_path_to_folder/:/video/
         depends_on: 
             - db
 
@@ -26,10 +26,9 @@ services:
             dockerfile: Dockerfile
         env_file: .env
         volumes: 
-            - /home/shadowmorex/python_video_timelapse/video:/video/
+            - /absolute_path_to_folder/:/video/
         depends_on:
             - db
-
 
     db:
         image: postgres:13-alpine

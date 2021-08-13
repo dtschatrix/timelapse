@@ -72,10 +72,10 @@ class CameraService:
         camera = (
             self.session
             .query(tables.Cameras)
-            .filter_by(camera_name = camera_name)
+            .filter_by(camera_name=camera_name)
             .first()
         )
         if not camera:
             raise Exception
-        
+
         return camera.id
