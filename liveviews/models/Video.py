@@ -48,4 +48,5 @@ class Video(threading.Thread):
                              '-y',
                              f'{self.path}/{self.name}_{time_s}.mp4'])
             time.sleep(1)
-            self._service.add_camera_metadata(self.id, f'{self.path}/{self.name}_{time_s}.mp4')
+            self._service.add_camera_metadata(
+                self.id, f'{self.path}/{self.name}_{time_s}.mp4')
