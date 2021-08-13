@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 
 from youtube_dl.YoutubeDL import YoutubeDL
 from services.MetadataService import MetadataService
@@ -23,6 +24,7 @@ class Video(threading.Thread):
         threading.Thread.__init__(self, name=name)
 
     def run(self):
+        time.sleep(10)
         if self.isactive:
             with self._ydl:
                try:

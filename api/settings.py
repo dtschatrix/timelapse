@@ -1,5 +1,4 @@
 from pydantic import BaseSettings
-import os
 class Settings(BaseSettings):
     server_host: str = "0.0.0.0"
     server_port: int = 1337
@@ -9,6 +8,7 @@ class Settings(BaseSettings):
     POSTGRES_SERVER = "db"
     POSTGRES_PORT = "5432"
     POSTGRES_DB = "POSTGRES_DB"
+
 
 
 settings = Settings(

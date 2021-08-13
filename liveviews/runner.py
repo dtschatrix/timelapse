@@ -34,6 +34,10 @@ def run_cameras(active_cameras: List[Camera]):
             path=camera_path,
             record_time=video_duration)
 
+        print(os.getcwd())
+        print(camera_path)
+        print(f'{camera_path}/{camera.camera_name}')
+
         threads.append(video)
 
     for index, camera in enumerate(active_cameras):

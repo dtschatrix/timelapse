@@ -20,7 +20,6 @@ class MetadataService:
             video_stream = next(
                 (stream for stream in file.streams if stream.codec_type == 'video'), None)
             if video_stream is None:
-                print('No video stream found!')
                 return
 
             metadata = LiveViewsCreate(camera_id=id, path=file.path_to_video, fps=float(
