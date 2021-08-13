@@ -25,19 +25,19 @@ def fill_up_base():
                  "is_active": True},
                 {"camera_name": "camera6",
                  "stream_url": "https://www.youtube.com/embed/4qyZLflp-sI?autoplay=1&controls=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=en&wmode=transparent&modestbranding=1&disablekb=1&origin=http%3A%2F%2Fwebcam.scs.com.ua&enablejsapi=1&widgetid=4",
-                 "is_active": True},
+                 "is_active": False},
                 {"camera_name": "camera7",
                  "stream_url": "https://www.youtube.com/embed/OcrV35VFsok?autoplay=1&controls=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=en&wmode=transparent&modestbranding=1&disablekb=1&origin=http%3A%2F%2Fwebcam.scs.com.ua&enablejsapi=1&widgetid=4",
-                 "is_active": True},
+                 "is_active": False},
                 {"camera_name": "camera8",
                  "stream_url": "https://www.youtube.com/embed/oSoR2qsv7es?autoplay=1&controls=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=en&wmode=transparent&modestbranding=1&disablekb=1&origin=http%3A%2F%2Fwebcam.scs.com.ua&enablejsapi=1&widgetid=4",
-                 "is_active": True},
+                 "is_active": False},
                 {"camera_name": "camera9",
                  "stream_url": "https://www.youtube.com/embed/fYoP5VLgetY?autoplay=1&controls=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=en&wmode=transparent&modestbranding=1&disablekb=1&origin=http%3A%2F%2Fwebcam.scs.com.ua&enablejsapi=1&widgetid=4",
-                 "is_active": True},
+                 "is_active": False},
                 {"camera_name": "camera10",
                  "stream_url": "https://www.youtube.com/embed/PWKjaA-wNho?autoplay=1&controls=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=en&wmode=transparent&modestbranding=1&disablekb=1&origin=http%3A%2F%2Fwebcam.scs.com.ua&enablejsapi=1&widgetid=4",
-                 "is_active": True}])
+                 "is_active": False}])
     )
 
     conn = engine.connect()

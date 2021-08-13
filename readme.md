@@ -18,9 +18,9 @@
 - POSTGRES_DB = type of database (`default postgres`)
 
 ### build and run
-Go to the root directory
-Open docker-compose.yml
-For `liveviews` and `timelapse` change value of volumes to your absoulte path
+Go to the root directory\
+Open docker-compose.yml\
+For `liveviews` and `timelapse` change value of volumes to your absoulte path\
 Save file
 
 Open terminal in root folder of project
